@@ -26,7 +26,7 @@
         <div class="mt-4">
             <div id="file-js-example" class="file has-name">
                 <label class="file-label">
-                    <input class="file-input" type="file" name="resume">
+                    <input class="file-input" type="file" name="someImage">
                     <span class="file-cta">
                         <span class="file-icon">
                             <i class="fas fa-upload"></i>
@@ -39,6 +39,20 @@
                         No file uploaded
                     </span>
                 </label>
+            </div>
+            <div class="mt-4">
+                <p>
+                    <label for="soundFile">What does your voice sound like?:</label>
+                    <input type="file" id="soundFile" capture="user" accept="audio/*">
+                    </p>
+                    <p>
+                    <label for="videoFile">Upload a video:</label>
+                    <input type="file" id="videoFile" capture="environment" accept="video/*">
+                    </p>
+                    <p>
+                    <label for="imageFile">Upload a photo of yourself:</label>
+                    <input type="file" id="imageFile" capture="user" accept="image/*">
+                    </p>
             </div>
 
             <script>
