@@ -20,8 +20,10 @@
             <a class="button is-primary mr-2" href=" mailto:augustasalminas2@gmail.com">mail</a>
             <br>
             <a class="button is-primary mr-2" href=" spotify:search:acdc">spotify</a>
+            <a class="button is-primary mr-2" href="/text.txt" download="">Text</a>
             <a class="button is-primary mr-2"
-                href="https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?cs=srgb&dl=pexels-valeria-boltneva-1805164.jpg&fm=jpg" download>Image</a>
+                href="https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?cs=srgb&dl=pexels-valeria-boltneva-1805164.jpg&fm=jpg"
+                download>Image</a>
         </div>
         <div class="mt-4">
             <div id="file-js-example" class="file has-name">
@@ -44,15 +46,46 @@
                 <p>
                     <label for="soundFile">What does your voice sound like?:</label>
                     <input type="file" id="soundFile" capture="user" accept="audio/*">
-                    </p>
-                    <p>
+                </p>
+                <p>
                     <label for="videoFile">Upload a video:</label>
                     <input type="file" id="videoFile" capture="environment" accept="video/*">
-                    </p>
-                    <p>
+                </p>
+                <p>
                     <label for="imageFile">Upload a photo of yourself:</label>
                     <input type="file" id="imageFile" capture="user" accept="image/*">
-                    </p>
+                </p>
+                <a id="dwn-btn">JS download</a>
+            </div>
+
+            <p id="text-val">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam accusamus dolorem
+                reprehenderit nam ipsam a recusandae, perferendis pariatur adipisci dolorum incidunt, debitis alias
+                numquam earum cum modi neque, excepturi sint.</p>
+
+            <div>
+                <script>
+                    function download(filename, text) {
+                        var element = document.createElement('a');
+                        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+                        element.setAttribute('download', filename);
+
+                        element.style.display = 'none';
+                        document.body.appendChild(element);
+
+                        element.click();
+
+                        document.body.removeChild(element);
+                    }
+
+                    // Start file download.
+                    document.getElementById("dwn-btn").addEventListener("click", function () {
+                        // Generate download of hello.txt file with some content
+                        var text = document.getElementById("text-val").value;
+                        var filename = "hello.txt";
+
+                        download(filename, text);
+                    }, false);
+                </script>
             </div>
 
             <script>
