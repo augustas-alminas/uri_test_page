@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     .static {
+        position: fixed;
+        top: 200px;
+    		left: 100px;
+        width: 200px;
+        height: 100px;
+        background-color: red;
+      }
+    </style>
+</head>
+<body>
+    <div class="static"></div>
+    <div>Webview area</div>
+</body>
+</html>
+<script>
+    document.addEventListener('touchstart', function(){
+      printEvent('touchstart')
+    });
+    document.addEventListener('touchend', function(){
+        printEvent('touchend');
+    });
+    document.addEventListener('touchmove', function(){
+        printEvent('touchmove');
+    });
+
+    function printEvent(s) {
+      const node = document.createElement('p')
+      node.innerText = 'webview event: ' + s
+      document.body.appendChild(node)
+    }
+</script>
